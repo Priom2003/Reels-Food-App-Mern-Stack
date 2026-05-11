@@ -165,23 +165,7 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
               <div className="reel-actions"
                 style={{
                   pointerEvents: 'auto',
-
-                  position: 'absolute',
-
-                  right: '14px',
-
-                  bottom: '110px',
-
                   zIndex: 20,
-
-                  display: 'flex',
-
-                  flexDirection: 'column',
-
-                  alignItems: 'center',
-
-                  gap: '18px'
-
                 }}
               >
                 <div style={{ height: '48px' }} />
