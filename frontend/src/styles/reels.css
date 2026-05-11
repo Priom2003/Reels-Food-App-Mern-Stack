@@ -86,7 +86,7 @@
   position: relative;
   width: 100%;
   padding: var(--space-6);
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 100px); /* make space for bottom nav */
+  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px); /* make space for bottom nav + buffer */
   display: flex;
   flex-direction: column;
   padding-right: 4.5rem;
@@ -127,7 +127,10 @@
 
 /* Desktop tweaks */
 @media (min-width: 768px) {
-  .reel-content { padding: 36px; }
+  .reel-content { 
+    padding: 36px; 
+    padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px);
+  }
   .reel-description { font-size: 1.05rem; max-width: 70ch; }
 }
 
@@ -246,19 +249,19 @@
   position: absolute;
   left: var(--space-4);
   right: var(--space-4);
-  bottom: calc(env(safe-area-inset-bottom, 0) + 72px);
+  bottom: calc(env(safe-area-inset-bottom, 0) + 80px);
   max-height: min(48dvh, 360px);
   z-index: 80;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  background: color-mix(in srgb, #000 78%, transparent);
+  background: color-mix(in srgb, #000 95%, transparent);
   border: 1px solid rgba(255,255,255,.16);
   border-radius: var(--radius-md);
   color: #fff;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   overflow: hidden;
   pointer-events: auto;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   touch-action: manipulation;
 }
 
