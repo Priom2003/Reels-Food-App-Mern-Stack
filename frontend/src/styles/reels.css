@@ -163,34 +163,42 @@
     padding-bottom: 88px;
   }
 
-  .reel-actions {
-    right: 12px;
-    bottom: 108px;
-  }
-}
-
 /* Right-side vertical actions (like, bookmark, comments) */
 .reel-actions {
   position: absolute;
-  right: 10px;
-  bottom: 96px; /* above bottom CTA and nav */
+  right: 12px;
+
+  bottom: 140px; /* moved upward */
+
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
+
+  z-index: 20;
+
   pointer-events: auto;
 }
 
 .reel-action {
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-  display: grid;
-  place-items: center;
-  background: color-mix(in srgb, #000 35%, transparent);
-  backdrop-filter: blur(2px);
-  color: #fff;
-  border: 1px solid rgba(255,255,255,.15);
-  box-shadow: var(--shadow-md);
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0,0,0,0.45);
+
+  backdrop-filter: blur(6px);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
 }
 
 .reel-action:active { transform: translateY(1px); }

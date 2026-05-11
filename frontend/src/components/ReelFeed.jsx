@@ -177,7 +177,7 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
                     aria-label="Like"
                     aria-pressed={Boolean(item.isLiked)}
                   >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill={item.isLiked ? "red" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill={item.isLiked ? "red" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-8.6 1-1a5.5 5.5 0 0 0 0-7.8z" />
                     </svg>
                   </button>
@@ -192,7 +192,7 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
                     aria-label="Bookmark"
                     aria-pressed={Boolean(item.isSaved)}
                   >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill={item.isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill={item.isSaved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1z" />
                     </svg>
                   </button>
