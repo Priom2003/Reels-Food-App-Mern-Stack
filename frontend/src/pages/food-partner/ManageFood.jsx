@@ -20,7 +20,7 @@ const ManageFood = () => {
     useEffect(() => {
 
         axios.get(
-            "${import.meta.env.VITE_API_URL}/api/food/mine",
+            `${import.meta.env.VITE_API_URL}/api/food/mine`,
             { withCredentials: true }
         )
             .then((response) => {
@@ -36,7 +36,7 @@ const ManageFood = () => {
 
         axios.get(
 
-            "${import.meta.env.VITE_API_URL}/api/food/analytics",
+            `${import.meta.env.VITE_API_URL}/api/food/analytics`,
 
             {
                 withCredentials: true
@@ -212,7 +212,7 @@ const ManageFood = () => {
         try {
 
             await axios.get(
-                "${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout",
+                `${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout`,
                 { withCredentials: true }
             );
 

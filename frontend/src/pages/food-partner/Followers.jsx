@@ -17,7 +17,7 @@ const Followers = () => {
         try {
             setLoading(true);
             const response = await axios.get(
-                '${import.meta.env.VITE_API_URL}/api/follow/me/followers',
+                `${import.meta.env.VITE_API_URL}/api/follow/me/followers`,
                 { withCredentials: true }
             );
             setFollowers(response.data.followers || []);

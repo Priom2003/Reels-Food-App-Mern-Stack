@@ -13,7 +13,7 @@ const Saved = () => {
     useEffect(() => {
 
         axios.get(
-            "${import.meta.env.VITE_API_URL}/api/food/save",
+            `${import.meta.env.VITE_API_URL}/api/food/save`,
             { withCredentials: true }
         )
             .then(response => {
@@ -59,7 +59,7 @@ const Saved = () => {
     async function likeVideo(item) {
 
         const response = await axios.post(
-            "${import.meta.env.VITE_API_URL}/api/food/like",
+            `${import.meta.env.VITE_API_URL}/api/food/like`,
             { foodId: item._id },
             { withCredentials: true }
         )
@@ -107,7 +107,7 @@ const Saved = () => {
         try {
 
             await axios.post(
-                "${import.meta.env.VITE_API_URL}/api/food/save",
+                `${import.meta.env.VITE_API_URL}/api/food/save`,
                 { foodId: item._id },
                 { withCredentials: true }
             )
@@ -164,7 +164,7 @@ const Saved = () => {
         try {
 
             await axios.get(
-                "${import.meta.env.VITE_API_URL}/api/auth/user/logout",
+                `${import.meta.env.VITE_API_URL}/api/auth/user/logout`,
                 { withCredentials: true }
             )
 

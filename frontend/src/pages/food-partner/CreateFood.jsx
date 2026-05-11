@@ -4,27 +4,27 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/create-food.css';
 
 const CreateFood = () => {
-    const [ name, setName ] = useState('');
-    const [ description, setDescription ] = useState('');
-    const [ videoFile, setVideoFile ] = useState(null);
-    const [ fileError, setFileError ] = useState('');
+    const [name, setName] = useState('');
+    const [description, setDescription] = useState('');
+    const [videoFile, setVideoFile] = useState(null);
+    const [fileError, setFileError] = useState('');
     const fileInputRef = useRef(null);
 
     const navigate = useNavigate();
     const videoURL = useMemo(() => {
         if (!videoFile) { return ''; }
         return URL.createObjectURL(videoFile);
-    }, [ videoFile ]);
+    }, [videoFile]);
 
     useEffect(() => {
         if (!videoURL) {
             return undefined;
         }
         return () => URL.revokeObjectURL(videoURL);
-    }, [ videoURL ]);
+    }, [videoURL]);
 
     const onFileChange = (e) => {
-        const file = e.target.files && e.target.files[ 0 ];
+        const file = e.target.files && e.target.files[0];
         if (!file) { setVideoFile(null); setFileError(''); return; }
         if (!file.type.startsWith('video/')) { setFileError('Please select a valid video file.'); return; }
         setFileError('');
@@ -34,7 +34,7 @@ const CreateFood = () => {
     const onDrop = (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const file = e.dataTransfer?.files?.[ 0 ];
+        const file = e.dataTransfer?.files?.[0];
         if (!file) { return; }
         if (!file.type.startsWith('video/')) { setFileError('Please drop a valid video file.'); return; }
         setFileError('');
@@ -56,7 +56,7 @@ const CreateFood = () => {
         formData.append('description', description);
         formData.append("video", videoFile);
 
-        const response = await axios.post("${import.meta.env.VITE_API_URL}/api/food", formData, {
+        const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/food`, formData, {
             withCredentials: true,
         })
 
@@ -69,18 +69,18 @@ const CreateFood = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.get("${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout", { withCredentials: true });
+            await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout`, { withCredentials: true });
         } catch (error) {
             console.error('Logout error:', error);
         }
         navigate("/food-partner/login");
     }
 
-    const isDisabled = useMemo(() => !name.trim() || !videoFile, [ name, videoFile ]);
+    const isDisabled = useMemo(() => !name.trim() || !videoFile, [name, videoFile]);
 
     return (
         <div className="create-food-page">
-            <button 
+            <button
                 onClick={handleLogout}
                 className="logout-btn-create-food"
             >

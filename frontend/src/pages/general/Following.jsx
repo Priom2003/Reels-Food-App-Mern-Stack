@@ -16,7 +16,7 @@ const Following = () => {
         try {
             setLoading(true);
             const response = await axios.get(
-                '${import.meta.env.VITE_API_URL}/api/follow/user/following',
+                `${import.meta.env.VITE_API_URL}/api/follow/user/following`,
                 { withCredentials: true }
             );
             setFollowedFoodPartners(response.data.foodPartners || []);

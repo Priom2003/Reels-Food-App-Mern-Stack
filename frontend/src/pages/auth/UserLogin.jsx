@@ -10,14 +10,15 @@ const UserLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("${import.meta.env.VITE_API_URL}/api/auth/user/login",{
+    const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/user/login`, {
       email,
       password
-    },{withCredentials: true
+    }, {
+      withCredentials: true
     })
 
     console.log(response.data);

@@ -18,7 +18,7 @@ const FoodPartnerRegister = () => {
     const password = e.target.password.value;
     const address = e.target.address.value;
 
-    axios.post("${import.meta.env.VITE_API_URL}/api/auth/food-partner/register",{
+    axios.post(`${import.meta.env.VITE_API_URL}/api/auth/food-partner/register`, {
         name: businessName,
         contactName,
         phone,

@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     // Check if user is authenticated by making a request to a protected endpoint
-    axios.get("${import.meta.env.VITE_API_URL}/api/auth/check", { withCredentials: true })
+    axios.get(`${import.meta.env.VITE_API_URL}/api/auth/check`, { withCredentials: true })
       .then(() => {
         setIsAuthenticated(true);
       })

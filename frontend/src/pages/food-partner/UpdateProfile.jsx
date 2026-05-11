@@ -4,18 +4,18 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/create-food.css';
 
 const UpdateProfile = () => {
-    const [ profile, setProfile ] = useState(null);
-    const [ businessName, setBusinessName ] = useState('');
-    const [ address, setAddress ] = useState('');
-    const [ avatarFile, setAvatarFile ] = useState(null);
-    const [ avatarPreview, setAvatarPreview ] = useState('');
-    const [ profileMessage, setProfileMessage ] = useState('');
-    const [ isRefreshingFollowers, setIsRefreshingFollowers ] = useState(false);
+    const [profile, setProfile] = useState(null);
+    const [businessName, setBusinessName] = useState('');
+    const [address, setAddress] = useState('');
+    const [avatarFile, setAvatarFile] = useState(null);
+    const [avatarPreview, setAvatarPreview] = useState('');
+    const [profileMessage, setProfileMessage] = useState('');
+    const [isRefreshingFollowers, setIsRefreshingFollowers] = useState(false);
     const avatarInputRef = useRef(null);
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("${import.meta.env.VITE_API_URL}/api/food-partner/me", { withCredentials: true })
+        axios.get(`${import.meta.env.VITE_API_URL}/api/food-partner/me`, { withCredentials: true })
             .then((response) => {
                 const foodPartner = response.data.foodPartner;
                 setProfile(foodPartner);
@@ -29,7 +29,7 @@ const UpdateProfile = () => {
     }, []);
 
     const onAvatarChange = (e) => {
-        const file = e.target.files && e.target.files[ 0 ];
+        const file = e.target.files && e.target.files[0];
         if (!file) { return; }
         if (!file.type.startsWith('image/')) {
             setProfileMessage('Please select a valid image file.');
@@ -51,7 +51,7 @@ const UpdateProfile = () => {
             formData.append('avatar', avatarFile);
         }
 
-        const response = await axios.patch("${import.meta.env.VITE_API_URL}/api/food-partner/me", formData, {
+        const response = await axios.patch(`${import.meta.env.VITE_API_URL}/api/food-partner/me`, formData, {
             withCredentials: true,
         });
 
@@ -66,7 +66,7 @@ const UpdateProfile = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.get("${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout", { withCredentials: true });
+            await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout`, { withCredentials: true });
         } catch (error) {
             console.error('Logout error:', error);
         }
@@ -76,7 +76,7 @@ const UpdateProfile = () => {
     const refreshFollowersCount = async () => {
         try {
             setIsRefreshingFollowers(true);
-            const response = await axios.get("${import.meta.env.VITE_API_URL}/api/food-partner/me", { withCredentials: true });
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/food-partner/me`, { withCredentials: true });
             const updatedProfile = response.data.foodPartner;
             setProfile(updatedProfile);
         } catch (error) {
@@ -110,16 +110,16 @@ const UpdateProfile = () => {
                     <form className="partner-profile-form" onSubmit={saveProfile}>
                         <div className="partner-profile-avatar-row">
                             {avatarPreview ? (
-                            <img
-                            className="partner-profile-avatar"
-                            src={avatarPreview}
-                            alt="Profile"
-                        />
-                    ) : (
-                        <div className="partner-profile-avatar placeholder-avatar">
-                        No Image
-                        </div>
-                    )}
+                                <img
+                                    className="partner-profile-avatar"
+                                    src={avatarPreview}
+                                    alt="Profile"
+                                />
+                            ) : (
+                                <div className="partner-profile-avatar placeholder-avatar">
+                                    No Image
+                                </div>
+                            )}
                             <div className="partner-profile-avatar-actions">
                                 <input
                                     ref={avatarInputRef}
@@ -136,8 +136,8 @@ const UpdateProfile = () => {
                                     <span className="small-note">
                                         {profile?.followersCount ?? 0} followers
                                     </span>
-                                    <button 
-                                        type="button" 
+                                    <button
+                                        type="button"
                                         onClick={refreshFollowersCount}
                                         disabled={isRefreshingFollowers}
                                         style={{

@@ -113,7 +113,7 @@ const Home = () => {
 
         const response = await axios.post(
 
-            "${import.meta.env.VITE_API_URL}/api/food/like",
+            `${import.meta.env.VITE_API_URL}/api/food/like`,
 
             {
                 foodId: item._id
@@ -175,7 +175,7 @@ const Home = () => {
 
         const response = await axios.post(
 
-            "${import.meta.env.VITE_API_URL}/api/food/save",
+            `${import.meta.env.VITE_API_URL}/api/food/save`,
 
             {
                 foodId: item._id
@@ -290,7 +290,7 @@ const Home = () => {
 
             await axios.get(
 
-                "${import.meta.env.VITE_API_URL}/api/auth/user/logout",
+                `${import.meta.env.VITE_API_URL}/api/auth/user/logout`,
 
                 {
                     withCredentials: true
