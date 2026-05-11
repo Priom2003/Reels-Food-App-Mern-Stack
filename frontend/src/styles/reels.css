@@ -396,17 +396,33 @@
 /* SEARCH + FILTER */
 
 .feed-controls {
+
     position: fixed;
+
     top: 20px;
     left: 20px;
+
     z-index: 90;
+
     display: flex;
-    gap: 12px;
-    align-items: center;
+    flex-direction: column;
+
+    gap: 10px;
+
+    align-items: flex-start;
+
     opacity: .38;
+
     transform: scale(.96);
+
     transition: .25s ease;
+
     filter: blur(1px);
+}
+
+.feed-sort {
+
+    width: 160px;
 }
 
 .feed-controls:hover {
