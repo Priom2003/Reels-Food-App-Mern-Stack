@@ -104,26 +104,49 @@ const Saved = () => {
 
     const removeSaved = async (item) => {
 
+        console.log("SAVE CLICKED");
+
         try {
 
-            await axios.post(
+            const response = await axios.post(
+
                 `${import.meta.env.VITE_API_URL}/api/food/save`,
-                { foodId: item._id },
-                { withCredentials: true }
-            )
 
-            console.log("Video unsaved")
+                {
+                    foodId: item._id
+                },
 
-            // instantly remove from saved page
+                {
+                    withCredentials: true
+                }
+
+            );
+
+            console.log("SAVE RESPONSE:", response.data);
+
             setVideos((prev) =>
-                prev.filter((v) =>
-                    v._id !== item._id
+
+                prev.map((v) =>
+
+                    v._id === item._id
+
+                        ? {
+                            ...v,
+                            isSaved: false,
+                            savesCount: Math.max(
+                                0,
+                                (v.savesCount ?? 1) - 1
+                            )
+                        }
+
+                        : v
                 )
             )
 
         } catch (error) {
 
-            console.error(error)
+            console.error("SAVE ERROR:", error);
+
         }
     }
 

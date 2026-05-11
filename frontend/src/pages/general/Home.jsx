@@ -173,62 +173,74 @@ const Home = () => {
     // save reel
     async function saveVideo(item) {
 
-        const response = await axios.post(
+        console.log("SAVE CLICKED");
 
-            `${import.meta.env.VITE_API_URL}/api/food/save`,
+        try {
 
-            {
-                foodId: item._id
-            },
+            const response = await axios.post(
 
-            {
-                withCredentials: true
+                `${import.meta.env.VITE_API_URL}/api/food/save`,
+
+                {
+                    foodId: item._id
+                },
+
+                {
+                    withCredentials: true
+                }
+
+            );
+
+            console.log("SAVE RESPONSE:", response.data);
+
+            if (response.data.saved) {
+
+                console.log("Video Saved");
+
+                setVideos((prev) =>
+
+                    prev.map((v) =>
+
+                        v._id === item._id
+
+                            ? {
+                                ...v,
+                                isSaved: true,
+                                savesCount: (v.savesCount || 0) + 1
+                            }
+
+                            : v
+                    )
+                )
+
+            } else {
+
+                console.log("Video Unsaved");
+
+                setVideos((prev) =>
+
+                    prev.map((v) =>
+
+                        v._id === item._id
+
+                            ? {
+                                ...v,
+                                isSaved: false,
+                                savesCount: Math.max(
+                                    0,
+                                    (v.savesCount || 0) - 1
+                                )
+                            }
+
+                            : v
+                    )
+                )
             }
 
-        )
+        } catch (error) {
 
-        if (response.data.saved) {
+            console.error("SAVE ERROR:", error);
 
-            console.log("Video Saved")
-
-            setVideos((prev) =>
-
-                prev.map((v) =>
-
-                    v._id === item._id
-
-                        ? {
-                            ...v,
-                            isSaved: true,
-                            savesCount: (v.savesCount || 0) + 1
-                        }
-
-                        : v
-                )
-            )
-
-        } else {
-
-            console.log("Video Unsaved")
-
-            setVideos((prev) =>
-
-                prev.map((v) =>
-
-                    v._id === item._id
-
-                        ? {
-                            ...v,
-                            isSaved: false,
-                            savesCount: Math.max(
-                                0,
-                                (v.savesCount || 0) - 1
-                            )
-                        }
-
-                        : v
-                )
-            )
         }
     }
 
