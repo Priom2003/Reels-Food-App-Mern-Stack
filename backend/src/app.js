@@ -10,7 +10,7 @@ const cors = require('cors');
 
 const app = express();
 app.use(cors({
-    origin: 'https://reels-food-app-mern-stack.vercel.app',
+    origin: '//https://reels-food-app-mern-stack-xqkh.vercel.app/',
     credentials: true
 }));
 app.use(cookieParser());
