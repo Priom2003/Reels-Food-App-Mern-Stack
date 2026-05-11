@@ -86,7 +86,7 @@
   position: relative;
   width: 100%;
   padding: var(--space-6);
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px); /* make space for bottom nav + buffer */
+  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px); /* make space for bottom nav */
   display: flex;
   flex-direction: column;
   padding-right: 4.5rem;
@@ -127,10 +127,7 @@
 
 /* Desktop tweaks */
 @media (min-width: 768px) {
-  .reel-content { 
-    padding: 36px; 
-    padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px);
-  }
+  .reel-content { padding: 36px; }
   .reel-description { font-size: 1.05rem; max-width: 70ch; }
 }
 
@@ -166,7 +163,7 @@
   position: absolute;
   right: 12px;
 
-  bottom: calc(env(safe-area-inset-bottom, 0) + 100px); /* account for bottom nav */
+  bottom: 185px; /* moved upward */
 
   display: flex;
   flex-direction: column;
@@ -188,23 +185,21 @@
   align-items: center;
   justify-content: center;
 
-  background: rgba(0,0,0,0.65);
+  background: rgba(0,0,0,0.45);
 
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(6px);
 
-  border: 1px solid rgba(255,255,255,0.3);
+  border: 1px solid rgba(255,255,255,0.15);
 
   cursor: pointer;
 
   transition: all 0.2s ease;
-  color: rgba(255,255,255,0.9);
 }
 
 .reel-action:active { transform: translateY(1px); }
 
 .reel-action svg {
   transition: fill var(--transition-base), color var(--transition-base), transform var(--transition-base);
-  filter: brightness(1.15);
 }
 
 .reel-action--like.is-active {
@@ -249,19 +244,19 @@
   position: absolute;
   left: var(--space-4);
   right: var(--space-4);
-  bottom: calc(env(safe-area-inset-bottom, 0) + 80px);
+  bottom: calc(env(safe-area-inset-bottom, 0) + 72px);
   max-height: min(48dvh, 360px);
   z-index: 80;
   display: grid;
   grid-template-rows: auto minmax(0, 1fr) auto;
-  background: color-mix(in srgb, #000 95%, transparent);
+  background: color-mix(in srgb, #000 78%, transparent);
   border: 1px solid rgba(255,255,255,.16);
   border-radius: var(--radius-md);
   color: #fff;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   pointer-events: auto;
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(10px);
   touch-action: manipulation;
 }
 
