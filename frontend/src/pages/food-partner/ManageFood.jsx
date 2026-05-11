@@ -20,7 +20,7 @@ const ManageFood = () => {
     useEffect(() => {
 
         axios.get(
-            "http://localhost:3000/api/food/mine",
+            "${import.meta.env.VITE_API_URL}/api/food/mine",
             { withCredentials: true }
         )
             .then((response) => {
@@ -36,7 +36,7 @@ const ManageFood = () => {
 
         axios.get(
 
-            "http://localhost:3000/api/food/analytics",
+            "${import.meta.env.VITE_API_URL}/api/food/analytics",
 
             {
                 withCredentials: true
@@ -78,7 +78,7 @@ const ManageFood = () => {
     const saveFoodEdit = async (item) => {
 
         const response = await axios.patch(
-            `http://localhost:3000/api/food/${item._id}`,
+            `${import.meta.env.VITE_API_URL}/api/food/${item._id}`,
             {
                 name: editName,
                 description: editDescription,
@@ -112,7 +112,7 @@ const ManageFood = () => {
         }
 
         await axios.delete(
-            `http://localhost:3000/api/food/${item._id}`,
+            `${import.meta.env.VITE_API_URL}/api/food/${item._id}`,
             {
                 withCredentials: true,
             }
@@ -143,7 +143,7 @@ const ManageFood = () => {
             setCommentsLoading(true);
 
             const response = await axios.get(
-                `http://localhost:3000/api/food/${item._id}/comments`,
+                `${import.meta.env.VITE_API_URL}/api/food/${item._id}/comments`,
                 { withCredentials: true }
             );
 
@@ -174,7 +174,7 @@ const ManageFood = () => {
         try {
 
             await axios.delete(
-                `http://localhost:3000/api/food/${commentId}/comments`,
+                `${import.meta.env.VITE_API_URL}/api/food/${commentId}/comments`,
                 {
                     withCredentials: true
                 }
@@ -212,7 +212,7 @@ const ManageFood = () => {
         try {
 
             await axios.get(
-                "http://localhost:3000/api/auth/food-partner/logout",
+                "${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout",
                 { withCredentials: true }
             );
 

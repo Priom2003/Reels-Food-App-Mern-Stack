@@ -34,7 +34,7 @@ const Home = () => {
                 }
 
                 const response = await axios.get(
-                    `http://localhost:3000/api/food?page=${page}&limit=5&search=${search}&sort=${sort}`,
+                    `${import.meta.env.VITE_API_URL}/api/food?page=${page}&limit=5&search=${search}&sort=${sort}`,
 
                     {
                         withCredentials: true
@@ -113,7 +113,7 @@ const Home = () => {
 
         const response = await axios.post(
 
-            "http://localhost:3000/api/food/like",
+            "${import.meta.env.VITE_API_URL}/api/food/like",
 
             {
                 foodId: item._id
@@ -175,7 +175,7 @@ const Home = () => {
 
         const response = await axios.post(
 
-            "http://localhost:3000/api/food/save",
+            "${import.meta.env.VITE_API_URL}/api/food/save",
 
             {
                 foodId: item._id
@@ -237,7 +237,7 @@ const Home = () => {
 
         const response = await axios.get(
 
-            `http://localhost:3000/api/food/${item._id}/comments`,
+            `${import.meta.env.VITE_API_URL}/api/food/${item._id}/comments`,
 
             {
                 withCredentials: true
@@ -253,7 +253,7 @@ const Home = () => {
 
         const response = await axios.post(
 
-            `http://localhost:3000/api/food/${item._id}/comments`,
+            `${import.meta.env.VITE_API_URL}/api/food/${item._id}/comments`,
 
             {
                 text
@@ -290,7 +290,7 @@ const Home = () => {
 
             await axios.get(
 
-                "http://localhost:3000/api/auth/user/logout",
+                "${import.meta.env.VITE_API_URL}/api/auth/user/logout",
 
                 {
                     withCredentials: true

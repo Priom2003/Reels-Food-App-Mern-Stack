@@ -56,7 +56,7 @@ const CreateFood = () => {
         formData.append('description', description);
         formData.append("video", videoFile);
 
-        const response = await axios.post("http://localhost:3000/api/food", formData, {
+        const response = await axios.post("${import.meta.env.VITE_API_URL}/api/food", formData, {
             withCredentials: true,
         })
 
@@ -69,7 +69,7 @@ const CreateFood = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.get("http://localhost:3000/api/auth/food-partner/logout", { withCredentials: true });
+            await axios.get("${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout", { withCredentials: true });
         } catch (error) {
             console.error('Logout error:', error);
         }

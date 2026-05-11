@@ -13,7 +13,7 @@ const Saved = () => {
     useEffect(() => {
 
         axios.get(
-            "http://localhost:3000/api/food/save",
+            "${import.meta.env.VITE_API_URL}/api/food/save",
             { withCredentials: true }
         )
             .then(response => {
@@ -59,7 +59,7 @@ const Saved = () => {
     async function likeVideo(item) {
 
         const response = await axios.post(
-            "http://localhost:3000/api/food/like",
+            "${import.meta.env.VITE_API_URL}/api/food/like",
             { foodId: item._id },
             { withCredentials: true }
         )
@@ -107,7 +107,7 @@ const Saved = () => {
         try {
 
             await axios.post(
-                "http://localhost:3000/api/food/save",
+                "${import.meta.env.VITE_API_URL}/api/food/save",
                 { foodId: item._id },
                 { withCredentials: true }
             )
@@ -130,7 +130,7 @@ const Saved = () => {
     async function loadComments(item) {
 
         const response = await axios.get(
-            `http://localhost:3000/api/food/${item._id}/comments`,
+            `${import.meta.env.VITE_API_URL}/api/food/${item._id}/comments`,
             { withCredentials: true }
         )
 
@@ -140,7 +140,7 @@ const Saved = () => {
     async function addComment(item, text) {
 
         const response = await axios.post(
-            `http://localhost:3000/api/food/${item._id}/comments`,
+            `${import.meta.env.VITE_API_URL}/api/food/${item._id}/comments`,
             { text },
             { withCredentials: true }
         )
@@ -164,7 +164,7 @@ const Saved = () => {
         try {
 
             await axios.get(
-                "http://localhost:3000/api/auth/user/logout",
+                "${import.meta.env.VITE_API_URL}/api/auth/user/logout",
                 { withCredentials: true }
             )
 

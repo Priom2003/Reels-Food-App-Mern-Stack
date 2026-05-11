@@ -12,7 +12,7 @@ const FollowButton = ({ foodPartnerId, onFollowChange }) => {
     const checkFollowStatus = async () => {
         try {
             const response = await axios.get(
-                `http://localhost:3000/api/follow/status/${foodPartnerId}`,
+                `${import.meta.env.VITE_API_URL}/api/follow/status/${foodPartnerId}`,
                 { withCredentials: true }
             );
             setIsFollowing(response.data.isFollowing);
@@ -26,13 +26,13 @@ const FollowButton = ({ foodPartnerId, onFollowChange }) => {
         try {
             if (isFollowing) {
                 await axios.delete(
-                    `http://localhost:3000/api/follow/${foodPartnerId}`,
+                    `${import.meta.env.VITE_API_URL}/api/follow/${foodPartnerId}`,
                     { withCredentials: true }
                 );
                 setIsFollowing(false);
             } else {
                 await axios.post(
-                    `http://localhost:3000/api/follow/${foodPartnerId}`,
+                    `${import.meta.env.VITE_API_URL}/api/follow/${foodPartnerId}`,
                     {},
                     { withCredentials: true }
                 );

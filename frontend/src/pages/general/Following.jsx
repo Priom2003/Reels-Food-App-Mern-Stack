@@ -16,7 +16,7 @@ const Following = () => {
         try {
             setLoading(true);
             const response = await axios.get(
-                'http://localhost:3000/api/follow/user/following',
+                '${import.meta.env.VITE_API_URL}/api/follow/user/following',
                 { withCredentials: true }
             );
             setFollowedFoodPartners(response.data.foodPartners || []);
@@ -37,7 +37,7 @@ const Following = () => {
     const handleUnfollow = async (foodPartnerId) => {
         try {
             await axios.delete(
-                `http://localhost:3000/api/follow/${foodPartnerId}`,
+                `${import.meta.env.VITE_API_URL}/api/follow/${foodPartnerId}`,
                 { withCredentials: true }
             );
             setFollowedFoodPartners((prev) =>

@@ -15,7 +15,7 @@ const UpdateProfile = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get("http://localhost:3000/api/food-partner/me", { withCredentials: true })
+        axios.get("${import.meta.env.VITE_API_URL}/api/food-partner/me", { withCredentials: true })
             .then((response) => {
                 const foodPartner = response.data.foodPartner;
                 setProfile(foodPartner);
@@ -51,7 +51,7 @@ const UpdateProfile = () => {
             formData.append('avatar', avatarFile);
         }
 
-        const response = await axios.patch("http://localhost:3000/api/food-partner/me", formData, {
+        const response = await axios.patch("${import.meta.env.VITE_API_URL}/api/food-partner/me", formData, {
             withCredentials: true,
         });
 
@@ -66,7 +66,7 @@ const UpdateProfile = () => {
 
     const handleLogout = async () => {
         try {
-            await axios.get("http://localhost:3000/api/auth/food-partner/logout", { withCredentials: true });
+            await axios.get("${import.meta.env.VITE_API_URL}/api/auth/food-partner/logout", { withCredentials: true });
         } catch (error) {
             console.error('Logout error:', error);
         }
@@ -76,7 +76,7 @@ const UpdateProfile = () => {
     const refreshFollowersCount = async () => {
         try {
             setIsRefreshingFollowers(true);
-            const response = await axios.get("http://localhost:3000/api/food-partner/me", { withCredentials: true });
+            const response = await axios.get("${import.meta.env.VITE_API_URL}/api/food-partner/me", { withCredentials: true });
             const updatedProfile = response.data.foodPartner;
             setProfile(updatedProfile);
         } catch (error) {
