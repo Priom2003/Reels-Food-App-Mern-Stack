@@ -172,7 +172,13 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
                 <div className="reel-action-group">
                   <button
                     type="button"
-                    onClick={onLike ? () => onLike(item) : undefined}
+                    onClick={(e) => {
+                      console.log('Like button clicked, onLike defined:', !!onLike);
+                      if (onLike) {
+                        console.log('Calling onLike with item:', item._id);
+                        onLike(item);
+                      }
+                    }}
                     className={`reel-action reel-action--like ${item.isLiked ? 'is-active' : ''}`}
                     aria-label="Like"
                     aria-pressed={Boolean(item.isLiked)}
@@ -188,7 +194,13 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
                   <button
                     type="button"
                     className={`reel-action reel-action--save ${item.isSaved ? 'is-active' : ''}`}
-                    onClick={onSave ? () => onSave(item) : undefined}
+                    onClick={(e) => {
+                      console.log('Save button clicked, onSave defined:', !!onSave);
+                      if (onSave) {
+                        console.log('Calling onSave with item:', item._id);
+                        onSave(item);
+                      }
+                    }}
                     aria-label="Bookmark"
                     aria-pressed={Boolean(item.isSaved)}
                   >

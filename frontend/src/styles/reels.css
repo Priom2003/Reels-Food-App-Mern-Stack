@@ -156,12 +156,6 @@
   .reel {
     height: calc(100dvh - 48px);
   }
-
-  .reel-content {
-    padding: 28px;
-    padding-right: 4.5rem;
-    padding-bottom: 88px;
-  }
 }
 
 /* Right-side vertical actions (like, bookmark, comments) */
