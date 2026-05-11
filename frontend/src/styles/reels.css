@@ -86,7 +86,7 @@
   position: relative;
   width: 100%;
   padding: var(--space-6);
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 72px); /* make space for bottom nav */
+  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 100px); /* make space for bottom nav */
   display: flex;
   flex-direction: column;
   padding-right: 4.5rem;
@@ -163,7 +163,7 @@
   position: absolute;
   right: 12px;
 
-  bottom: 140px; /* moved upward */
+  bottom: calc(env(safe-area-inset-bottom, 0) + 100px); /* account for bottom nav */
 
   display: flex;
   flex-direction: column;
@@ -185,21 +185,23 @@
   align-items: center;
   justify-content: center;
 
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.65);
 
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(10px);
 
-  border: 1px solid rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
 
   cursor: pointer;
 
   transition: all 0.2s ease;
+  color: rgba(255,255,255,0.9);
 }
 
 .reel-action:active { transform: translateY(1px); }
 
 .reel-action svg {
   transition: fill var(--transition-base), color var(--transition-base), transform var(--transition-base);
+  filter: brightness(1.15);
 }
 
 .reel-action--like.is-active {
