@@ -12,6 +12,10 @@
   border: none;
   cursor: pointer;
   transition: background var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  z-index: 40;
+  min-height: 48px;
+  padding: 12px 20px;
 }
 .comment-btn:hover, .comment-btn:focus-visible {
   background: #1d4ed8; /* blue-700 */
@@ -119,6 +123,10 @@
   text-decoration: none;
   box-shadow: var(--shadow-md);
   transition: transform var(--transition-base), background var(--transition-base), box-shadow var(--transition-base);
+  position: relative;
+  z-index: 40;
+  min-height: 48px;
+  padding: 12px 20px;
 }
 
 .reel-btn:hover { background: var(--color-accent-hover); }
@@ -159,7 +167,7 @@
 
   .reel-content {
 
-    padding-bottom: 170px;
+    padding-bottom: 230px;
 
 }
 }
@@ -169,7 +177,7 @@
   position: absolute;
   right: 12px;
 
-  bottom: 185px; /* moved upward */
+  bottom: 235px; /* moved upward */
 
   display: flex;
   flex-direction: column;
