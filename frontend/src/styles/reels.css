@@ -1,3 +1,5 @@
+@import './theme.css';
+
 .comment-btn {
   background: #2563eb; /* blue-600 */
   color: #fff;
@@ -20,7 +22,6 @@
   background: #1e40af; /* blue-800 */
   color: #fff;
 }
-@import './theme.css';
 
 /* Page container ensures full viewport and background */
 .reels-page {
