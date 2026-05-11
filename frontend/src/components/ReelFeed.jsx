@@ -156,9 +156,19 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
               </div>
             )}
 
-            <div className="reel-overlay">
+            <div className="reel-overlay"
+              style={{
+                pointerEvents: 'none'
+              }}
+            >
               <div className="reel-overlay-gradient" aria-hidden="true" />
-              <div className="reel-actions">
+              <div className="reel-actions"
+                style={{
+                  pointerEvents: 'auto',
+                  position: 'relative',
+                  zIndex: 20
+                }}
+              >
                 <div style={{ height: '48px' }} />
                 <div className="reel-action-group">
                   <button
@@ -193,7 +203,13 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
                 <div style={{ height: '48px' }} />
               </div>
 
-              <div className="reel-content">
+              <div className="reel-content"
+                style={{
+                  pointerEvents: 'auto',
+                  position: 'relative',
+                  zIndex: 20
+                }}
+              >
                 <p className="reel-description" title={item.description}>{item.description}</p>
                 {typeof item.foodPartner === 'object' && item.foodPartner?.name && (
                   <p style={{ fontSize: '13px', color: '#aaa', marginTop: '4px', marginBottom: '8px' }}>
