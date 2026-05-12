@@ -90,7 +90,7 @@
   position: relative;
   width: 100%;
   padding: var(--space-6);
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px); /* make space for bottom nav */
+  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 145px); /* make space for bottom nav */
   display: flex;
   flex-direction: column;
   padding-right: 4.5rem;
@@ -164,14 +164,6 @@
   .reel {
     height: calc(100dvh - 48px);
   }
-
-  .reel-content {
-    padding-bottom: 185px;
-}
-
-  .reel-actions {
-    bottom: 185px;
-}
 }
 
 /* Right-side vertical actions (like, bookmark, comments) */
@@ -179,7 +171,7 @@
   position: absolute;
   right: 12px;
 
-  bottom: 145px; /* moved upward */
+  bottom: 165px; /* moved upward */
 
   display: flex;
   flex-direction: column;
