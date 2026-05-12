@@ -204,18 +204,33 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
 
               <div className="reel-content"
                 style={{
-                  pointerEvents: 'auto',
                   position: 'relative',
                   zIndex: 20
                 }}
               >
-                <p className="reel-description" title={item.description}>{item.description}</p>
+                <p className="reel-description" style={{ pointerEvents: 'none' }} title={item.description}>{item.description}</p>
                 {typeof item.foodPartner === 'object' && item.foodPartner?.name && (
                   <p
                     style={{
-                      display: 'flex', alignItems: 'center', gap: '6px', fontSize: '13px', color: 'rgba(255,255,255,0.72)', marginTop: '2px',
+
+                      pointerEvents: 'none',
+
+                      display: 'flex',
+
+                      alignItems: 'center',
+
+                      gap: '6px',
+
+                      fontSize: '13px',
+
+                      color: 'rgba(255,255,255,0.72)',
+
+                      marginTop: '2px',
+
                       marginBottom: '10px',
+
                       fontWeight: '500',
+
                       letterSpacing: '.2px'
                     }}
                   >
