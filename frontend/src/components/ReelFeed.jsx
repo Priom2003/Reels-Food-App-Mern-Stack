@@ -209,52 +209,12 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
                   zIndex: 20
                 }}
               >
-                <p className="reel-description" title={item.description}>{item.description}
-                </p>{typeof item.foodPartner === 'object' && item.foodPartner?.name && (
-                  <p
-                    style={{
-
-                      display: 'flex',
-
-                      alignItems: 'center',
-
-                      gap: '6px',
-
-                      fontSize: '13px',
-
-                      color: 'rgba(255,255,255,0.72)',
-
-                      marginTop: '2px',
-
-                      marginBottom: '10px',
-
-                      fontWeight: '500',
-
-                      letterSpacing: '.2px'
-
-                    }}
-                  >
-                    <span
-                      style={{
-                        color: '#fff',
-                        fontWeight: '600'
-                      }}
-                    >
-                      @{item.foodPartner.name}
-                    </span>
-                    <span
-                      style={{
-                        opacity: .7
-                      }}
-                    >
-                      •
-                    </span>
-                    <span>
-                      {item.foodPartner.followersCount || 0} followers
-                    </span>
+                <p className="reel-description" title={item.description}>{item.description}</p>
+                {typeof item.foodPartner === 'object' && item.foodPartner?.name && (
+                  <p style={{ fontSize: '13px', color: '#aaa', marginTop: '4px', marginBottom: '8px' }}>
+                    {item.foodPartner.name}
                   </p>
                 )}
-
                 <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginTop: '8px' }}>
                   {item.foodPartner && (
                     <Link className="reel-btn" to={"/food-partner/" + (typeof item.foodPartner === 'object' ? item.foodPartner._id : item.foodPartner)} aria-label="Visit store">Visit store</Link>
