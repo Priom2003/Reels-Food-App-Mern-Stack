@@ -9,13 +9,13 @@ import ReelFeed from '../../components/ReelFeed'
 const Home = () => {
 
     const [videos, setVideos] = useState([])
-    const [loading, setLoading] = useState(true)
     const [recommendedItems, setRecommendedItems] = useState([])
     const [search, setSearch] = useState('')
     const [sort, setSort] = useState('')
     const [page, setPage] = useState(1)
     const [hasMore, setHasMore] = useState(true)
     const [loadingMore, setLoadingMore] = useState(false)
+    const [initialLoading, setInitialLoading] = useState(true)
 
     const navigate = useNavigate()
     const feedRef = useRef(null)
@@ -27,12 +27,6 @@ const Home = () => {
         async function fetchReels() {
 
             try {
-
-                if (page === 1) {
-
-                    setLoading(true)
-                }
-
                 const response = await axios.get(
                     `${import.meta.env.VITE_API_URL}/api/food?page=${page}&limit=5&search=${search}&sort=${sort}`,
 
@@ -87,11 +81,11 @@ const Home = () => {
 
                 setLoadingMore(false)
 
-                if (page === 1) {
+                if (initialLoading) {
 
                     setTimeout(() => {
 
-                        setLoading(false)
+                        setInitialLoading(false)
 
                     }, 1500)
                 }
@@ -318,7 +312,7 @@ const Home = () => {
         navigate("/user/login")
     }
 
-    if (loading) {
+    if (initialLoading) {
 
         return (
 
