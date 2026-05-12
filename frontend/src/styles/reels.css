@@ -166,9 +166,11 @@
   }
 
   .reel-content {
+    padding-bottom: 185px;
+}
 
-    padding-bottom: 230px;
-
+  .reel-actions {
+    bottom: 185px;
 }
 }
 
@@ -177,7 +179,7 @@
   position: absolute;
   right: 12px;
 
-  bottom: 235px; /* moved upward */
+  bottom: 145px; /* moved upward */
 
   display: flex;
   flex-direction: column;
