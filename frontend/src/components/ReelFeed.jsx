@@ -148,11 +148,8 @@ const ReelFeed = ({ items = [], onLike, onSave, onLoadComments, onAddComment, em
             />
 
             {heartAnimationFor === item._id && (
-
               <div className="double-like-heart">
-
                 ❤️
-
               </div>
             )}
 
