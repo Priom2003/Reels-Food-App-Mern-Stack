@@ -137,16 +137,12 @@
 .reel-actions {
   position: absolute;
   right: 12px;
-
-  bottom: 155px;
-
+  bottom: 185px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-
   z-index: 20;
-
   pointer-events: auto;
 }
 
