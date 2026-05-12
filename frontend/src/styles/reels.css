@@ -90,7 +90,7 @@
   position: relative;
   width: 100%;
   padding: var(--space-6);
-  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 145px); /* make space for bottom nav */
+  padding-bottom: calc(env(safe-area-inset-bottom, 0) + 120px); /* make space for bottom nav */
   display: flex;
   flex-direction: column;
   padding-right: 4.5rem;
@@ -138,7 +138,7 @@
   position: absolute;
   right: 12px;
 
-  bottom: 165px; /* moved upward */
+  bottom: 145px; /* moved upward */
 
   display: flex;
   flex-direction: column;
