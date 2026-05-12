@@ -133,39 +133,6 @@
 .reel-btn:active { transform: translateY(1px); }
 .reel-btn:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 
-/* Desktop tweaks */
-@media (min-width: 768px) {
-  .reel-content { padding: 36px; }
-  .reel-description { font-size: 1.05rem; max-width: 70ch; }
-}
-
-@media (min-width: 900px) {
-  .reels-page {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-    background:
-      radial-gradient(900px 520px at 20% 10%, var(--color-surface-alt) 0%, transparent 55%),
-      radial-gradient(900px 520px at 80% 90%, var(--color-surface-alt) 0%, transparent 55%),
-      var(--color-bg);
-  }
-
-  .reels-feed {
-    width: min(430px, calc(100vw - 48px));
-    height: calc(100dvh - 48px);
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255,255,255,.15);
-    box-shadow: var(--shadow-md);
-    overflow: hidden auto;
-    background: #000;
-  }
-
-  .reel {
-    height: calc(100dvh - 48px);
-  }
-}
-
 /* Right-side vertical actions (like, bookmark, comments) */
 .reel-actions {
   position: absolute;
@@ -204,6 +171,14 @@
   cursor: pointer;
 
   transition: all 0.2s ease;
+
+  -webkit-tap-highlight-color: transparent;
+  
+  touch-action: manipulation;
+}
+
+.reels-page {
+  user-select: none;
 }
 
 .reel-action:active { transform: translateY(1px); }
